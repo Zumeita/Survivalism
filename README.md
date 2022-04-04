@@ -1,4 +1,4 @@
-### Survivalism: Minecraft ###
+# Survivalism: Minecraft #
 
 _Survive - Mine - Craft_
 

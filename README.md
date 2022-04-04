@@ -1,5 +1,7 @@
 # Minecraft: Survivalism #
 
+_An in-development mod, with the ultimate goal to add more depth and features to Minecraft._
+
 ## :earth_americas: _A Brave New World_ ##
 - No longer will deserts form next to ice, a new world generator guarantees accurate depiction of banding temperature zones.
 - Interesting & realistic biomes, full of depth, ranging from Arid Scrublands & Rainforests, to Tundra & Evergreen forests.
@@ -20,6 +22,4 @@ _Only in the woods was all at rest within me, my soul became still and full of p
 - Fruit trees provide a plethora of ingredients for survival.
 - Trees take much longer to grow, be careful of deforestation, make sure you give back what you take.
 
-
-An in-development mod, with the ultimate goal to add more depth and features to Minecraft.
 

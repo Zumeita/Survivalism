@@ -4,5 +4,5 @@ _Survive - Mine - Craft_
 
 ## About ##
 
-This mod
+An in-development mod, with the ultimate goal to add more depth and features to Minecraft.
 

@@ -1,8 +1,16 @@
 package io.github.zumeita.survivalism.definitions;
 
+import io.github.zumeita.survivalism.block.blocktypes.HerbBushBlock;
+import io.github.zumeita.survivalism.block.blocktypes.NewFlowerBlock;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.LinkedList;
@@ -25,9 +33,10 @@ public class VegetationBlocks {
 
     public enum Default {
 
-        // to be changed
-        SAGEBRUSH(VegType.VEG_TYPE_HERB, false, null, null, null, null, null, false, null);
-        //BITTERBRUSH(VegType.VEG_TYPE_HERB, false, null, null, null, null, null, true, FloweringSeasonSpringSummer());
+        SAGEBRUSH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, false, null),
+        BITTERBRUSH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, true, FloweringSeasonSpringSummer()),
+        MILKVETCH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, true, FloweringSeasonSummer()),
+        ADONIS(VegType.VEG_TYPE_FLOWER, false, null, null, null, null,  null, true, FloweringSeasonSpringSummer());
 
         private final VegType type;
         private final Boolean is_tall;
@@ -69,9 +78,9 @@ public class VegetationBlocks {
                 case VEG_TYPE_HERB:
                 case VEG_TYPE_GRASS:
                 case VEG_TYPE_BUSH:
-                    //return new HerbBushBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_GREEN).noCollission().instabreak().sound(SoundType.GRASS));
+                    return new HerbBushBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_GREEN).noCollission().instabreak().sound(SoundType.GRASS));
                 case VEG_TYPE_FLOWER:
-                    //return new sFlowerBlock(Effects.REGENERATION, 7, AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS));
+                    return new NewFlowerBlock(Effects.REGENERATION, 7, AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS));
                 default:
                     return null;
             }

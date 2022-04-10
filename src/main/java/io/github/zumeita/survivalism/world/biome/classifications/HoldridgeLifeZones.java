@@ -1,7 +1,11 @@
 package io.github.zumeita.survivalism.world.biome.classifications;
 
+import com.mojang.serialization.Codec;
 import io.github.zumeita.survivalism.world.biome.biomes.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeMaker;
 
@@ -40,6 +44,7 @@ public class HoldridgeLifeZones {
 
         private final double min_temp;
         private final double max_temp;
+
 
         BioTemperature(double min_temp, double max_temp) {
             this.min_temp = min_temp;
@@ -142,7 +147,7 @@ public class HoldridgeLifeZones {
         TROPICAL_DRY_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
         TROPICAL_MOIST_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
         TROPICAL_WET_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
-        TROPICAL_RAIN_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert);
+        TROPICAL_RAIN_FOREST(24.0, 30.0, BiomeMaker::jungleBiome);
 
         private double min_temp;
         private double max_temp;

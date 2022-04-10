@@ -1,4 +1,4 @@
-package io.github.zumeita.survivalism.item;
+package io.github.zumeita.survivalism.world.item;
 
 import net.minecraft.item.Item;
 

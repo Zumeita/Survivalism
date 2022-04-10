@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.world.biome.biomes;
 
+import io.github.zumeita.survivalism.world.surfacebuilders.SurvivalismConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
@@ -13,7 +14,7 @@ public class WarmTemperateBiomes {
 
         mobspawninfo$builder.setPlayerCanSpawn();
 
-        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.DESERT);
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SurvivalismConfiguredSurfaceBuilders.CSB_WARM_TEMPERATE);
 
         //biomegenerationsettings$builder.addStructureStart(StructureFeatures.VILLAGE_PLAINS).addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
 

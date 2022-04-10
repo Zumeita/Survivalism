@@ -1,4 +1,4 @@
-package io.github.zumeita.survivalism.item;
+package io.github.zumeita.survivalism.world.item;
 
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.VegetationBlocks;

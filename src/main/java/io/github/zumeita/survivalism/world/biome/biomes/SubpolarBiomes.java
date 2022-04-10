@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.world.biome.biomes;
 
+import io.github.zumeita.survivalism.world.surfacebuilders.SurvivalismConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
@@ -11,7 +12,7 @@ public class SubpolarBiomes {
     public static Biome SubpolarDryTundra() {
         MobSpawnInfo.Builder mobspawninfo$builder = (new MobSpawnInfo.Builder()).creatureGenerationProbability(0.07F);
         DefaultBiomeFeatures.snowySpawns(mobspawninfo$builder);
-        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SurvivalismConfiguredSurfaceBuilders.CSB_SUBPOLAR);
 
         biomegenerationsettings$builder.addStructureStart(StructureFeatures.VILLAGE_SNOWY).addStructureStart(StructureFeatures.IGLOO);
 

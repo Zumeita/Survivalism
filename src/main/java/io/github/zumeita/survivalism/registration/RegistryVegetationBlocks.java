@@ -7,15 +7,13 @@ import java.util.function.Supplier;
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.VegetationBlocks;
 import io.github.zumeita.survivalism.helpers.Helpers;
-import io.github.zumeita.survivalism.item.ItemGroups;
+import io.github.zumeita.survivalism.world.item.ItemGroups;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = Survivalism.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class RegistryVegetationBlocks {

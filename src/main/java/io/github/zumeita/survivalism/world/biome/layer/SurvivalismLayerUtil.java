@@ -37,7 +37,7 @@ public class SurvivalismLayerUtil {
         temperatureFactory = LatitudinalRegionsLayer.INSTANCE.run(contextFactory.apply(2L));//2L is old val
         rainfallFactory = PrecipitationNoiseLayer.LARGE_ZONES.run(contextFactory.apply(9L));
 
-        return ClimateLayer.INSTANCE.run(contextFactory.apply(103L), temperatureFactory, rainfallFactory);
+        return ClimateLayer.INSTANCE.run(contextFactory.apply(103L), temperatureFactory, rainfallFactory); // default 103L
     }
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> createBiomeFactory(IAreaFactory<T> landSeaAreaFactory, IAreaFactory<T> climateAreaFactory, LongFunction<C> contextFactory)

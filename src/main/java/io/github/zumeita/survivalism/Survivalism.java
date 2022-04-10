@@ -2,6 +2,7 @@ package io.github.zumeita.survivalism;
 
 import io.github.zumeita.survivalism.client.ClientEventHandler;
 import io.github.zumeita.survivalism.registration.DeferredRegisters;
+import io.github.zumeita.survivalism.world.biome.BiomeRegistry;
 import net.minecraft.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,7 @@ public class Survivalism
         //DeferredRegisters.register(modEventBus);
         DeferredRegisters.ITEMS.register(modEventBus);
         DeferredRegisters.BLOCKS.register(modEventBus);
+        BiomeRegistry.register(modEventBus);
 
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> ClientEventHandler::init);
 
@@ -42,7 +44,6 @@ public class Survivalism
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // register a new block here
-            System.out.printf("[ZETRX] onBlocksRegistry: %s", blockRegistryEvent.getName().toString());
         }
     }
 

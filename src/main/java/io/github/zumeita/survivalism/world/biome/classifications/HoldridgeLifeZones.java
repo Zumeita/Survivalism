@@ -1,7 +1,12 @@
 package io.github.zumeita.survivalism.world.biome.classifications;
 
+import io.github.zumeita.survivalism.world.biome.biomes.*;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeMaker;
+
 import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.util.function.Supplier;
 
 /*
 
@@ -25,22 +30,20 @@ public class HoldridgeLifeZones {
     }
 
     public enum BioTemperature {
-        POLAR(0.0, 1.4, new Biomes[]{Biomes.DESERT}),
-        SUBPOLAR(1.5, 2.9, new Biomes[]{Biomes.DRY_TUNDRA, Biomes.MOIST_TUNDRA, Biomes.WET_TUNDRA, Biomes.RAIN_TUNDRA}),
-        BOREAL(3.0, 5.9, new Biomes[]{Biomes.DESERT, Biomes.DRY_SCRUB, Biomes.MOIST_FOREST, Biomes.WET_FOREST, Biomes.RAIN_FOREST}),
-        COOL_TEMPERATE(6.0, 11.9, new Biomes[]{Biomes.DESERT, Biomes.DESERT_SCRUB, Biomes.STEPPE, Biomes.MOIST_FOREST, Biomes.WET_FOREST, Biomes.RAIN_FOREST}),
-        WARM_TEMPERATE(12.0, 17.9, new Biomes[]{Biomes.DESERT, Biomes.DESERT_SCRUB, Biomes.THORN_STEPPE, Biomes.THORN_WOODLAND, Biomes.DRY_FOREST, Biomes.MOIST_FOREST, Biomes.WET_FOREST, Biomes.RAIN_FOREST}),
-        SUBTROPICAL(18.0, 23.9, new Biomes[]{Biomes.DESERT, Biomes.DESERT_SCRUB, Biomes.THORN_STEPPE, Biomes.THORN_WOODLAND, Biomes.DRY_FOREST, Biomes.MOIST_FOREST, Biomes.WET_FOREST, Biomes.RAIN_FOREST}),
-        TROPICAL(24.0, 30.0, new Biomes[]{Biomes.DESERT, Biomes.DESERT_SCRUB, Biomes.THORN_WOODLAND, Biomes.VERY_DRY_FOREST, Biomes.DRY_FOREST, Biomes.MOIST_FOREST, Biomes.WET_FOREST, Biomes.RAIN_FOREST});
+        POLAR(0.0, 1.4),
+        SUBPOLAR(1.5, 2.9),
+        BOREAL(3.0, 5.9),
+        COOL_TEMPERATE(6.0, 11.9),
+        WARM_TEMPERATE(12.0, 17.9),
+        SUBTROPICAL(18.0, 23.9),
+        TROPICAL(24.0, 30.0);
 
         private final double min_temp;
         private final double max_temp;
-        private final Biomes[] validBiomes;
 
-        BioTemperature(double min_temp, double max_temp, Biomes[] validBiomes) {
+        BioTemperature(double min_temp, double max_temp) {
             this.min_temp = min_temp;
             this.max_temp = max_temp;
-            this.validBiomes = validBiomes;
         }
 
         /**
@@ -57,10 +60,6 @@ public class HoldridgeLifeZones {
 
         public double getMaximumTemperature() {
             return this.max_temp;
-        }
-
-        public Biomes[] getValidBiomes() {
-            return this.validBiomes;
         }
 
         /**
@@ -86,38 +85,75 @@ public class HoldridgeLifeZones {
         }
     }
 
+    public enum HumidityZones {
+        SUPER_ARID,
+        PERARID,
+        ARID,
+        SEMI_ARID,
+        SUB_HUMID,
+        HUMID,
+        PER_HUMID,
+        SUPER_HUMID;
+    }
+
+
     public enum Biomes {
 
-        DESERT(0.0, 30.0),
-        DESERT_SCRUB(6.0, 30.0),
+        POLAR_DESERT(0.0, 1.4, PolarBiomes::PolarDesert),
 
-        DRY_SCRUB(3.0, 6.0),
-        DRY_TUNDRA(1.5, 3.0),
-        DRY_FOREST(12.0, 30.0),
+        SUBPOLAR_DRY_TUNDRA(1.5, 2.9, SubpolarBiomes::SubpolarDryTundra),
+        SUBPOLAR_MOIST_TUNDRA(1.5, 2.9, SubpolarBiomes::SubpolarDryTundra),
+        SUBPOLAR_WET_TUNDRA(1.5, 2.9, SubpolarBiomes::SubpolarDryTundra),
+        SUBPOLAR_RAIN_TUNDRA(1.5, 2.9, SubpolarBiomes::SubpolarDryTundra),
 
-        MOIST_TUNDRA(1.5, 3.0),
-        MOIST_FOREST(3.0, 30.0),
+        BOREAL_DESERT(3.0, 5.9, BorealBiomes::PolarDesert),
+        BOREAL_DRY_SCRUB(3.0, 5.9, BorealBiomes::PolarDesert),
+        BOREAL_MOIST_FOREST(3.0, 5.9, BorealBiomes::PolarDesert),
+        BOREAL_WET_FOREST(3.0, 5.9, BorealBiomes::PolarDesert),
+        BOREAL_RAIN_FOREST(3.0, 5.9, BorealBiomes::PolarDesert),
 
-        THORN_WOODLAND(12.0, 30.0),
-        THORN_STEPPE(12.0, 24.0),
+        COOL_TEMPERATE_DESERT(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
+        COOL_TEMPERATE_DESERT_SCRUB(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
+        COOL_TEMPERATE_STEPPE(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
+        COOL_TEMPERATE_MOIST_FOREST(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
+        COOL_TEMPERATE_WET_FOREST(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
+        COOL_TEMPERATE_RAIN_FOREST(6.0, 11.9, CoolTemperateBiomes::PolarDesert),
 
-        STEPPE(6.0, 12.0),
+        WARM_TEMPERATE_DESERT(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_DESERT_SCRUB(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_THORN_STEPPE(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_DRY_FOREST(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_MOIST_FOREST(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_WET_FOREST(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
+        WARM_TEMPERATE_RAIN_FOREST(12.0, 17.9, WarmTemperateBiomes::PolarDesert),
 
-        VERY_DRY_FOREST(24.0, 30.0),
+        SUBTROPICAL_DESERT(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_DESERT_SCRUB(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_THORN_STEPPE(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_DRY_FOREST(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_MOIST_FOREST(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_WET_FOREST(18.0, 23.9, SubtropicalBiomes::PolarDesert),
+        SUBTROPICAL_RAIN_FOREST(18.0, 23.9, SubtropicalBiomes::PolarDesert),
 
-        WET_TUNDRA(1.5, 3.0),
-        WET_FOREST(3.0, 30.0),
+        TROPICAL_DESERT(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_DESERT_SCRUB(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_THORN_STEPPE(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_VERY_DRY_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_DRY_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_MOIST_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_WET_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert),
+        TROPICAL_RAIN_FOREST(24.0, 30.0, TropicalBiomes::PolarDesert);
 
-        RAIN_TUNDRA(1.5, 3.0),
-        RAIN_FOREST(24.0, 30.0);
+        private double min_temp;
+        private double max_temp;
+        private Supplier<? extends Biome> biomeSupplier;
 
-        private final double min_temp;
-        private final double max_temp;
-
-        Biomes(double min_temp, double max_temp) {
+        Biomes(double min_temp, double max_temp, Supplier<? extends Biome> biomeSupplier) {
             this.min_temp = min_temp;
             this.max_temp = max_temp;
+            this.biomeSupplier = biomeSupplier;
         }
+
 
         public double getMinimumTemperature() {
             return this.min_temp;
@@ -126,6 +162,8 @@ public class HoldridgeLifeZones {
         public double getMaximumTemperature() {
             return this.max_temp;
         }
+
+        public Supplier<? extends Biome> getBiomeSupplier() { return this.biomeSupplier; }
 
         public String getName() {
             return this.name().toLowerCase();
@@ -153,6 +191,16 @@ public class HoldridgeLifeZones {
                 }
             }
             return biomesToReturn;
+        }
+
+        private RegistryKey<Biome> registryKey;
+
+        public void addRegistryKey(RegistryKey<Biome> key) {
+            this.registryKey = key;
+        }
+
+        public RegistryKey<Biome> getBiomeRegistryKey() {
+            return this.registryKey;
         }
     }
 }

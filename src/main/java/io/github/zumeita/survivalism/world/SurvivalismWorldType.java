@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.world;
 
+import io.github.zumeita.survivalism.world.biome.provider.SurvivalismBiomeProvider;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.DimensionType;
@@ -16,7 +17,6 @@ public class SurvivalismWorldType extends ForgeWorldType {
         super(null);
     }
 
-    //TODO Finish BiomeProvider.
     @Override
     public ChunkGenerator createChunkGenerator(Registry<Biome> biomeRegistry, Registry<DimensionSettings> dimensionSettingsRegistry, long seed, String generatorSettings) {
         return new NoiseChunkGenerator(new SurvivalismBiomeProvider(seed, biomeRegistry), seed, () -> dimensionSettingsRegistry.getOrThrow(DimensionSettings.OVERWORLD));

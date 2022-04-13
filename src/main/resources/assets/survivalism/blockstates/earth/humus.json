@@ -1,0 +1,308 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "survivalism:block/earth/humus_bottom",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_no_grass_top",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model" : "survivalism:block/earth/humus_top",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "snowy": true,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_no_grass_top",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_top",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": true,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_top"
+      }
+    },
+    {
+      "when": {
+        "east": true,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_top",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": true,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_top",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": true,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_top",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "north": true,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_top"
+      }
+    },
+    {
+      "when": {
+        "east": true,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_top",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": true,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_top",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": true,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_top",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "north": false,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side"
+      }
+    },
+    {
+      "when": {
+        "east": false,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": false,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": false,
+        "snowy": false,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "north": false,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side"
+      }
+    },
+    {
+      "when": {
+        "east": false,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": false,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": false,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "north": true,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side_placed"
+      }
+    },
+    {
+      "when": {
+        "east": true,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side_placed",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": true,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side_placed",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": true,
+        "snowy": false,
+        "grass": false
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_side_placed",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "north": false,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_side"
+      }
+    },
+    {
+      "when": {
+        "east": false,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_side",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": false,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_side",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": false,
+        "snowy": true,
+        "grass": true
+      },
+      "apply": {
+        "model": "survivalism:block/earth/humus_snowy_side",
+        "y": 270
+      }
+    }
+  ]
+}

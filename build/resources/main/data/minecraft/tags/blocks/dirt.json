@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "survivalism:earth/humus",
+    "survivalism:earth/topsoil",
+    "survivalism:earth/subsoil"
+  ]
+}

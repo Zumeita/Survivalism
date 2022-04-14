@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/earth/clay"
+      },
+      {
+        "model": "survivalism:block/earth/clay",
+        "y": 90
+      },
+      {
+        "model": "survivalism:block/earth/clay",
+        "y": 180
+      },
+      {
+        "model": "survivalism:block/earth/clay",
+        "y": 270
+      }
+    ]
+  }
+}

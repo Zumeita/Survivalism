@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/earth/topsoil"
+      },
+      {
+        "model": "survivalism:block/earth/topsoil",
+        "y": 90
+      },
+      {
+        "model": "survivalism:block/earth/topsoil",
+        "y": 180
+      },
+      {
+        "model": "survivalism:block/earth/topsoil",
+        "y": 270
+      }
+    ]
+  }
+}

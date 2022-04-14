@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/earth/subsoil"
+      },
+      {
+        "model": "survivalism:block/earth/subsoil",
+        "y": 90
+      },
+      {
+        "model": "survivalism:block/earth/subsoil",
+        "y": 180
+      },
+      {
+        "model": "survivalism:block/earth/subsoil",
+        "y": 270
+      }
+    ]
+  }
+}

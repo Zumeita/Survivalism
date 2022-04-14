@@ -1,0 +1,6 @@
+{
+  "parent": "survivalism:block/earth/grass_snowy_top",
+  "textures": {
+    "texture": "survivalism:block/earth/humus"
+  }
+}

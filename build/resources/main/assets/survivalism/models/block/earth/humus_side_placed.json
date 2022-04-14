@@ -1,0 +1,6 @@
+{
+  "parent": "survivalism:block/earth/humus_side_placed_parent",
+  "textures": {
+    "texture": "survivalism:block/earth/humus"
+  }
+}

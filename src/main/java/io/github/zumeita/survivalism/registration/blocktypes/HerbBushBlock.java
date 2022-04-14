@@ -1,8 +1,7 @@
-package io.github.zumeita.survivalism.block.blocktypes;
+package io.github.zumeita.survivalism.registration.blocktypes;
 
 import javax.annotation.Nullable;
 
-import io.github.zumeita.survivalism.block.BlockVars;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -58,12 +57,12 @@ public class HerbBushBlock extends BushBlock implements IPlantable
         return Block.OffsetType.XYZ;
     }
 
-    @Override
+    /*@Override
     public PlantType getPlantType(IBlockReader world, BlockPos pos) {
 
-        if(this.getBlock() == BlockVars.sagebrush) {
+        if(this.getBlock() =) {
             return PlantType.DESERT;
         }
         return PlantType.PLAINS;
-    }
+    }*/
 }

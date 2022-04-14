@@ -182,7 +182,7 @@
         "grass": false
       },
       "apply": {
-        "model": "survivalism:block/earth/humus_side"
+        "model": "survivalism:block/earth/humus_side_placed"
       }
     },
     {
@@ -192,7 +192,7 @@
         "grass": false
       },
       "apply": {
-        "model": "survivalism:block/earth/humus_side",
+        "model": "survivalism:block/earth/humus_side_placed",
         "y": 90
       }
     },
@@ -203,7 +203,7 @@
         "grass": false
       },
       "apply": {
-        "model": "survivalism:block/earth/humus_side",
+        "model": "survivalism:block/earth/humus_side_placed",
         "y": 180
       }
     },
@@ -214,7 +214,7 @@
         "grass": false
       },
       "apply": {
-        "model": "survivalism:block/earth/humus_side",
+        "model": "survivalism:block/earth/humus_side_placed",
         "y": 270
       }
     },

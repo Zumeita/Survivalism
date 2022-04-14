@@ -1,6 +1,7 @@
-package io.github.zumeita.survivalism.block.blocktypes;
+package io.github.zumeita.survivalism.registration.blocktypes;
 
 import com.google.common.collect.ImmutableMap;
+import io.github.zumeita.survivalism.definitions.EarthBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -93,20 +94,23 @@ public class HumusBlock extends Block implements IGrassOntop {
         }
         else
         {
+            updateStateFromNeighbors(worldIn, pos, state);
+
             if (worldIn.getMaxLocalRawBrightness(pos.above()) >= 9)
             {
                 for (int i = 0; i < 4; ++i)
                 {
                     BlockPos posAt = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                     BlockState stateAt = worldIn.getBlockState(posAt);
-                    if (stateAt.getBlock() instanceof IGrassOntop && !stateAt.getValue(GRASS))
+                    if (stateAt.getBlock() == EarthBlocks.Type.HUMUS.getBlock() && !stateAt.getValue(GRASS))
                     {
                         // TODO - This doesn't seem to be working. Needs more debug.
-                        BlockState grassState = stateAt.getBlockState();
-                        if (canPropagate(grassState, worldIn, posAt))
+                        if (canPropagate(stateAt, worldIn, posAt))
                         {
                             stateAt.setValue(GRASS, true);
-                            worldIn.setBlockAndUpdate(posAt, updateStateFromNeighbors(worldIn, posAt, grassState));
+                            worldIn.setBlock(posAt, EarthBlocks.Type.HUMUS.getBlock().defaultBlockState(), 2);
+                            updateStateFromNeighbors(worldIn, posAt, stateAt);
+                            System.out.printf("Grass Growth: %d, %d, %d, %b%n", posAt.getX(), posAt.getY(), posAt.getZ(), worldIn.getBlockState(posAt).getValue(GRASS));
                         }
                     }
                 }
@@ -120,15 +124,15 @@ public class HumusBlock extends Block implements IGrassOntop {
         if (worldIn.isAreaLoaded(pos, 2))
         {
             worldIn.setBlock(pos, updateStateFromNeighbors(worldIn, pos, state), 2);
-            //updateSurroundingGrassConnections(worldIn, pos);
         }
     }
 
     @Override // No grass when placed manually.
     public BlockState getStateForPlacement(BlockItemUseContext context)
     {
-        BlockState stateUp = context.getLevel().getBlockState(context.getClickedPos().above());
-        return updateStateFromNeighbors(context.getLevel(), context.getClickedPos(), defaultBlockState()).setValue(GRASS, false);
+        //BlockState stateUp = context.getLevel().getBlockState(context.getClickedPos().above());
+        //return updateStateFromNeighbors(context.getLevel(), context.getClickedPos(), defaultBlockState()).setValue(GRASS, false);
+        return EarthBlocks.Type.HUMUS.getBlock().defaultBlockState().setValue(GRASS, false);
     }
 
     @Override
@@ -181,7 +185,7 @@ public class HumusBlock extends Block implements IGrassOntop {
         BlockState blockStateBelow = worldIn.getBlockState(pos.relative(direction).below());
         BlockState blockStateReturn = stateIn;
 
-        if(blockStateBelow.getBlock() instanceof IGrassOntop || blockStateBelow.getBlock() instanceof SoilBlock  || blockStateBelow.is(Tags.Blocks.DIRT)) {
+        if(blockStateBelow.getBlock() instanceof IGrassOntop ) {
             blockStateReturn = stateIn.setValue(PROPERTIES.get(direction), true);
         } else {
             blockStateReturn = stateIn.setValue(PROPERTIES.get(direction), false);

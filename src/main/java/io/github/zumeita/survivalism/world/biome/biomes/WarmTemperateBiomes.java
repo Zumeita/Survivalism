@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.world.biome.biomes;
 
+import io.github.zumeita.survivalism.helpers.biome.BiomeHelpers;
 import io.github.zumeita.survivalism.world.surfacebuilders.SurvivalismConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
@@ -42,6 +43,8 @@ public class WarmTemperateBiomes {
 
         DefaultBiomeFeatures.addDefaultSprings(biomegenerationsettings$builder);
         DefaultBiomeFeatures.addSurfaceFreezing(biomegenerationsettings$builder);
+
+        BiomeHelpers.addStandardFeatures(biomegenerationsettings$builder);
 
         int skyColor = 12638463;
 

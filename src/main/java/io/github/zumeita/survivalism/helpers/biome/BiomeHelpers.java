@@ -1,8 +1,13 @@
 package io.github.zumeita.survivalism.helpers.biome;
 
+import io.github.zumeita.survivalism.registration.RegisterConfiguredFeatures;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 
@@ -43,6 +48,10 @@ public class BiomeHelpers {
     public static RegistryKey<Biome> createKey(int id)
     {
         return createKey(getBiome(id));
+    }
+
+    public static void addStandardFeatures(BiomeGenerationSettings.Builder builder) {
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, RegisterConfiguredFeatures.CLAY);
     }
 
 }

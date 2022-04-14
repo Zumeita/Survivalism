@@ -3,7 +3,7 @@ package io.github.zumeita.survivalism.registration;
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.EarthBlocks;
 import io.github.zumeita.survivalism.helpers.Helpers;
-import io.github.zumeita.survivalism.world.item.ItemGroups;
+import io.github.zumeita.survivalism.item.ItemGroups;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

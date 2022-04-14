@@ -2,6 +2,7 @@ package io.github.zumeita.survivalism;
 
 import io.github.zumeita.survivalism.client.ClientEventHandler;
 import io.github.zumeita.survivalism.registration.DeferredRegisters;
+import io.github.zumeita.survivalism.registration.RegisterFeatures;
 import io.github.zumeita.survivalism.world.biome.BiomeRegistry;
 import net.minecraft.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,8 +31,10 @@ public class Survivalism
 
         //ModItems.register(modEventBus);
         //DeferredRegisters.register(modEventBus);
-        DeferredRegisters.ITEMS.register(modEventBus);
-        DeferredRegisters.BLOCKS.register(modEventBus);
+        //DeferredRegisters.ITEMS.register(modEventBus);
+        //DeferredRegisters.BLOCKS.register(modEventBus);
+        DeferredRegisters.register(modEventBus);
+        RegisterFeatures.FEATURES.register(modEventBus);
         BiomeRegistry.register(modEventBus);
 
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> ClientEventHandler::init);

@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.VegetationBlocks;
 import io.github.zumeita.survivalism.helpers.Helpers;
-import io.github.zumeita.survivalism.world.item.ItemGroups;
+import io.github.zumeita.survivalism.item.ItemGroups;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

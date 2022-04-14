@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.world.biome.biomes;
 
+import io.github.zumeita.survivalism.helpers.biome.BiomeHelpers;
 import io.github.zumeita.survivalism.world.surfacebuilders.SurvivalismConfiguredSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
@@ -39,6 +40,9 @@ public class SubpolarBiomes {
         DefaultBiomeFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
         DefaultBiomeFeatures.addDefaultSprings(biomegenerationsettings$builder);
         DefaultBiomeFeatures.addSurfaceFreezing(biomegenerationsettings$builder);
+
+        BiomeHelpers.addStandardFeatures(biomegenerationsettings$builder);
+
         return (new Biome.Builder()).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.ICY).depth(0.125F).scale(0.05F).temperature(0.0F).downfall(0.5F).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(12638463).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobspawninfo$builder.build()).generationSettings(biomegenerationsettings$builder.build()).build();
     }
 

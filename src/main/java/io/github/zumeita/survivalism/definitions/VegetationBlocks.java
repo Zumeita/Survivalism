@@ -1,7 +1,7 @@
 package io.github.zumeita.survivalism.definitions;
 
-import io.github.zumeita.survivalism.block.blocktypes.HerbBushBlock;
-import io.github.zumeita.survivalism.block.blocktypes.NewFlowerBlock;
+import io.github.zumeita.survivalism.registration.blocktypes.HerbBushBlock;
+import io.github.zumeita.survivalism.registration.blocktypes.NewFlowerBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

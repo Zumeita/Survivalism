@@ -1,25 +1,16 @@
 package io.github.zumeita.survivalism.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import io.github.zumeita.survivalism.block.blocktypes.HumusBlock;
-import io.github.zumeita.survivalism.block.blocktypes.IGrassOntop;
-import io.github.zumeita.survivalism.block.blocktypes.SoilBlock;
 import io.github.zumeita.survivalism.definitions.EarthBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
-
-import static io.github.zumeita.survivalism.block.blocktypes.HumusBlock.PROPERTIES;
 
 public class EarthSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 

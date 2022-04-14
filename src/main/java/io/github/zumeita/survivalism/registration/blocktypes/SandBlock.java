@@ -1,4 +1,4 @@
-package io.github.zumeita.survivalism.block.blocktypes;
+package io.github.zumeita.survivalism.registration.blocktypes;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

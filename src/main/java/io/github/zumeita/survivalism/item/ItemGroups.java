@@ -1,9 +1,10 @@
-package io.github.zumeita.survivalism.world.item;
+package io.github.zumeita.survivalism.item;
 
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.EarthBlocks;
 import io.github.zumeita.survivalism.definitions.VegetationBlocks;
 import io.github.zumeita.survivalism.registration.RegisterEarthBlocks;
+import io.github.zumeita.survivalism.registration.RegisterItems;
 import io.github.zumeita.survivalism.registration.RegistryVegetationBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,7 @@ public class ItemGroups extends ItemGroup {
     public static final ItemGroup ITEM_GROUP_SEEDS = new ItemGroups("seeds", () -> new ItemStack(RegistryVegetationBlocks.VEG.get(VegetationBlocks.Default.SAGEBRUSH).get()));
     public static final ItemGroup ITEM_GROUP_FOOD = new ItemGroups("food", () -> new ItemStack(RegistryVegetationBlocks.VEG.get(VegetationBlocks.Default.SAGEBRUSH).get()));
     public static final ItemGroup ITEM_GROUP_VEGETATION = new ItemGroups("vegetation", () -> new ItemStack(RegistryVegetationBlocks.VEG.get(VegetationBlocks.Default.SAGEBRUSH).get()));
+    public static final ItemGroup ITEM_GROUP_MATERIALS = new ItemGroups("materials", () -> new ItemStack(RegisterItems.CLAY.get()));
 
     public static final ItemGroup ITEM_GROUP_EARTH = new ItemGroups("earth", () -> new ItemStack(RegisterEarthBlocks.EARTH_BLOCKS.get(EarthBlocks.Type.HUMUS).get()));
 

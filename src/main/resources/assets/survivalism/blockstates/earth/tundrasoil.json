@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/earth/tundrasoil"
+      },
+      {
+        "model": "survivalism:block/earth/tundrasoil",
+        "y": 90
+      },
+      {
+        "model": "survivalism:block/earth/tundrasoil",
+        "y": 180
+      },
+      {
+        "model": "survivalism:block/earth/tundrasoil",
+        "y": 270
+      }
+    ]
+  }
+}

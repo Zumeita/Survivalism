@@ -2,6 +2,7 @@ package io.github.zumeita.survivalism.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import io.github.zumeita.survivalism.definitions.EarthBlocks;
+import io.github.zumeita.survivalism.registration.blocktypes.HumusBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -35,12 +36,12 @@ public class EarthSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
         int noiseResult = (int)(noise / 3.0D + 5.0D + random.nextDouble() * 0.25D); // Right 3.0 is apparently the depth of middle block
         int posX = x & 15;
         int posZ = z & 15;
-
         int topSoilCounter = 0;
 
         for(int currentHeight = startHeight; currentHeight >= 0; currentHeight--) {
 
             currentBlockPos.set(posX, currentHeight, posZ);
+
             BlockState currentBlockState = chunkIn.getBlockState(currentBlockPos);
 
             if(currentBlockState.isAir()) {
@@ -68,7 +69,15 @@ public class EarthSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
                     if (currentHeight >= sealevel - 1) {
 
-                        chunkIn.setBlockState(currentBlockPos, topBlock, false);
+                        if(biomeIn.getTemperature(currentBlockPos) <= 0.2F) {
+                            if(biomeIn.getDownfall() <= 0.2F) {
+                                chunkIn.setBlockState(currentBlockPos, EarthBlocks.Type.TUNDRASOIL.getBlock().defaultBlockState(), false);
+                            } else {
+                                chunkIn.setBlockState(currentBlockPos, topBlock.setValue(HumusBlock.SNOWY, true), false);
+                            }
+                        } else {
+                            chunkIn.setBlockState(currentBlockPos, topBlock, false);
+                        }
 
                     } else if (currentHeight < sealevel - 7 - noiseResult) {
                         topBlock = Blocks.AIR.defaultBlockState();

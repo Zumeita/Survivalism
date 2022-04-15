@@ -6,8 +6,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 
@@ -50,8 +53,25 @@ public class BiomeHelpers {
         return createKey(getBiome(id));
     }
 
-    public static void addStandardFeatures(BiomeGenerationSettings.Builder builder) {
+    public static void addStandardSurvivalismFeatures(BiomeGenerationSettings.Builder builder) {
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, RegisterConfiguredFeatures.CLAY);
+    }
+
+    public static void addStandardVanillaFeatures(BiomeGenerationSettings.Builder builder) {
+        //biomegenerationsettings$builder.addStructureStart(StructureFeatures.VILLAGE_PLAINS).addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(builder);
+        DefaultBiomeFeatures.addDefaultCarvers(builder);
+        DefaultBiomeFeatures.addDefaultLakes(builder);
+        DefaultBiomeFeatures.addDefaultMonsterRoom(builder);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(builder);
+        DefaultBiomeFeatures.addDefaultOres(builder);
+        DefaultBiomeFeatures.addDefaultSprings(builder);
+        DefaultBiomeFeatures.addSurfaceFreezing(builder);
+    }
+
+    public static void setupStandardMobSpawnInfo(MobSpawnInfo.Builder builder) {
+        DefaultBiomeFeatures.plainsSpawns(builder);
+        builder.setPlayerCanSpawn();
     }
 
 }

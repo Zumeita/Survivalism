@@ -28,10 +28,11 @@ public class SurvivalismSurfaceBuilders {
     private static final BlockState SAND = Blocks.SAND.defaultBlockState();
     private static final BlockState HUMUS = EarthBlocks.Type.HUMUS.getBlock().defaultBlockState();
     private static final BlockState TOPSOIL = EarthBlocks.Type.TOPSOIL.getBlock().defaultBlockState();
+    private static final BlockState TUNDRASOIL = EarthBlocks.Type.TUNDRASOIL.getBlock().defaultBlockState();
 
     // Configurations
-    public static final SurfaceBuilderConfig CONFIG_POLAR = new SurfaceBuilderConfig(SNOW_BLOCK, SNOW_BLOCK, GRAVEL);
-    public static final SurfaceBuilderConfig CONFIG_SUBPOLAR = new SurfaceBuilderConfig(SNOW, DIRT, GRAVEL);
+    public static final SurfaceBuilderConfig CONFIG_POLAR = new SurfaceBuilderConfig(TUNDRASOIL, TOPSOIL, GRAVEL);
+    public static final SurfaceBuilderConfig CONFIG_SUBPOLAR = new SurfaceBuilderConfig(TUNDRASOIL, TOPSOIL, GRAVEL);
     public static final SurfaceBuilderConfig CONFIG_BOREAL = new SurfaceBuilderConfig(HUMUS, TOPSOIL, GRAVEL);
     public static final SurfaceBuilderConfig CONFIG_COOL_TEMPERATE = new SurfaceBuilderConfig(HUMUS, TOPSOIL, GRAVEL);
     public static final SurfaceBuilderConfig CONFIG_WARM_TEMPERATE = new SurfaceBuilderConfig(HUMUS, TOPSOIL, GRAVEL);
@@ -39,8 +40,8 @@ public class SurvivalismSurfaceBuilders {
     public static final SurfaceBuilderConfig CONFIG_TROPICAL = new SurfaceBuilderConfig(HUMUS, TOPSOIL, SAND);
 
     // Builders
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_POLAR = register("surface_polar", new DefaultSurfaceBuilder(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_SUBPOLAR = register("surface_subpolar", new DefaultSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_POLAR = register("surface_polar", new EarthSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_SUBPOLAR = register("surface_subpolar", new EarthSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_BOREAL = register("surface_boreal", new EarthSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_COOL_TEMPERATE = register("surface_cool_temperate", new EarthSurfaceBuilder(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SURFACE_WARM_TEMPERATE = register("surface_warm_temperate", new EarthSurfaceBuilder(SurfaceBuilderConfig.CODEC));

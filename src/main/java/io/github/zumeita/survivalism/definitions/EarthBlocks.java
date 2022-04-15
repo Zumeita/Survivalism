@@ -21,6 +21,7 @@ public class EarthBlocks {
         HUMUS(new HumusBlock(properties)),
         TOPSOIL(new SoilBlock(properties)),
         SUBSOIL(new SoilBlock(properties)),
+        TUNDRASOIL(new SoilBlock(properties)),
         SAND(new SoilBlock(properties)),
         CLAY(new SoilBlock(propertiesClay));
 

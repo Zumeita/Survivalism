@@ -46,10 +46,15 @@ public class HumusBlock extends Block implements IGrassOntop {
     {
         if (facing == Direction.UP) {
             if(facingState.getBlock() instanceof HumusBlock) {
-                if (facingState.getValue(SNOWY) || facingState == Blocks.SNOW.defaultBlockState() || facingState == Blocks.SNOW_BLOCK.defaultBlockState()) {
+                if(worldIn.getBiome(facingPos).getTemperature(facingPos) <= 0.2F) {
                     return stateIn.setValue(SNOWY, true);
                 }
-            }
+                //if (facingState.getValue(SNOWY)) {
+                    //return stateIn.setValue(SNOWY, true);
+                //}
+            }// else if (facingState == Blocks.SNOW.defaultBlockState() || facingState == Blocks.SNOW_BLOCK.defaultBlockState()) {
+                //return stateIn.setValue(SNOWY, true);
+            //}
         } else if (facing != Direction.DOWN) {
             return updateStateFromDirection(worldIn, currentPos, stateIn, facing);
         }
@@ -84,12 +89,20 @@ public class HumusBlock extends Block implements IGrassOntop {
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random)
     {
+        if(worldIn.isRaining()) {
+            if(!state.getValue(GRASS) && !state.getValue(SNOWY)) { // Is manually placed
+                BlockState change = state.setValue(GRASS, true);
+                worldIn.setBlockAndUpdate(pos, change.setValue(SNOWY, true));
+            }
+        }
         if (!canBeCoveredInGrass(state, worldIn, pos))
         {
             if (worldIn.isAreaLoaded(pos, 3))
             {
                 // Turn to not-grass
-                worldIn.setBlockAndUpdate(pos, state.setValue(GRASS, false));
+                if(worldIn.getBiome(pos).getTemperature(pos) > 0.2F) {
+                    worldIn.setBlockAndUpdate(pos, state.setValue(GRASS, false));
+                }
             }
         }
         else
@@ -185,7 +198,7 @@ public class HumusBlock extends Block implements IGrassOntop {
         BlockState blockStateBelow = worldIn.getBlockState(pos.relative(direction).below());
         BlockState blockStateReturn = stateIn;
 
-        if(blockStateBelow.getBlock() instanceof IGrassOntop ) {
+        if(blockStateBelow.getBlock() instanceof IGrassOntop || blockStateBelow == Blocks.GRASS_BLOCK.defaultBlockState()) {
             blockStateReturn = stateIn.setValue(PROPERTIES.get(direction), true);
         } else {
             blockStateReturn = stateIn.setValue(PROPERTIES.get(direction), false);

@@ -1,7 +1,7 @@
 {
   "parent": "block/block",
   "textures": {
-    "overlay": "survivalism:block/earth/grass_side",
+    "overlay": "survivalism:block/earth/grass_overlay",
     "particle": "#texture"
   },
   "elements": [
@@ -37,7 +37,8 @@
       "faces": {
         "north": {
           "texture": "#overlay",
-          "cullface": "north"
+          "cullface": "north",
+          "tintindex": 0
         }
       }
     }

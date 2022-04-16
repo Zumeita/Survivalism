@@ -14,7 +14,7 @@ public class SubpolarBiomes {
         int skyColor = 12638463;
         int grassColor = 5140788;
         Float temperature = 0.1F;
-        Float precipitation = 0.2F;
+        Float precipitation = 0.0F;
 
         BiomeGenerationSettings.Builder builder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SurvivalismConfiguredSurfaceBuilders.CSB_SUBPOLAR);
         MobSpawnInfo.Builder mobSpawnBuilder = new MobSpawnInfo.Builder();
@@ -39,6 +39,7 @@ public class SubpolarBiomes {
         BiomeHelpers.setupStandardMobSpawnInfo(new MobSpawnInfo.Builder());
         BiomeHelpers.addStandardVanillaFeatures(builder);
         BiomeHelpers.addStandardSurvivalismFeatures(builder);
+        DefaultBiomeFeatures.addSurfaceFreezing(builder);
 
         return (new Biome.Builder()).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.PLAINS).depth(0.125F).scale(0.05F).temperature(temperature).downfall(precipitation).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(skyColor).grassColorOverride(grassColor).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(builder.build()).build();
     }
@@ -56,8 +57,9 @@ public class SubpolarBiomes {
         BiomeHelpers.setupStandardMobSpawnInfo(new MobSpawnInfo.Builder());
         BiomeHelpers.addStandardVanillaFeatures(builder);
         BiomeHelpers.addStandardSurvivalismFeatures(builder);
+        DefaultBiomeFeatures.addSurfaceFreezing(builder);
 
-        return (new Biome.Builder()).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.PLAINS).depth(0.125F).scale(0.05F).temperature(temperature).downfall(precipitation).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(skyColor).grassColorOverride(grassColor).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(builder.build()).build();
+        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.125F).scale(0.05F).temperature(temperature).downfall(precipitation).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(skyColor).grassColorOverride(grassColor).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(builder.build()).build();
     }
 
     public static Biome RainTundra() {
@@ -73,7 +75,8 @@ public class SubpolarBiomes {
         BiomeHelpers.setupStandardMobSpawnInfo(new MobSpawnInfo.Builder());
         BiomeHelpers.addStandardVanillaFeatures(builder);
         BiomeHelpers.addStandardSurvivalismFeatures(builder);
+        DefaultBiomeFeatures.addSurfaceFreezing(builder);
 
-        return (new Biome.Builder()).precipitation(Biome.RainType.SNOW).biomeCategory(Biome.Category.PLAINS).depth(0.125F).scale(0.05F).temperature(temperature).downfall(precipitation).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(skyColor).grassColorOverride(grassColor).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(builder.build()).build();
+        return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.125F).scale(0.05F).temperature(temperature).downfall(precipitation).specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(skyColor).grassColorOverride(grassColor).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobSpawnBuilder.build()).generationSettings(builder.build()).build();
     }
 }

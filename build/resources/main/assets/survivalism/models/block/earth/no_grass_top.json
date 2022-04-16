@@ -19,8 +19,7 @@
       "faces": {
         "north": {
           "texture": "#overlay",
-          "cullface": "north",
-          "tintindex": 0
+          "cullface": "north"
         }
       }
     }

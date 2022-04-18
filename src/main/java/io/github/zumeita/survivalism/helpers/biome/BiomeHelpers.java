@@ -55,6 +55,14 @@ public class BiomeHelpers {
 
     public static void addStandardSurvivalismFeatures(BiomeGenerationSettings.Builder builder) {
         builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, RegisterConfiguredFeatures.CLAY);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.GRASS);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_CARROT);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_GARLIC);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_ONION);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_POTATO);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_CABBAGE);
+        builder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, RegisterConfiguredFeatures.WILD_SPINACH);
+
     }
 
     public static void addStandardVanillaFeatures(BiomeGenerationSettings.Builder builder) {

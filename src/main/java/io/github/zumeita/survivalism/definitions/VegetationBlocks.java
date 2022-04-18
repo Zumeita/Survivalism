@@ -1,5 +1,6 @@
 package io.github.zumeita.survivalism.definitions;
 
+import io.github.zumeita.survivalism.registration.blocktypes.GrowingGrassBlock;
 import io.github.zumeita.survivalism.registration.blocktypes.HerbBushBlock;
 import io.github.zumeita.survivalism.registration.blocktypes.NewFlowerBlock;
 import net.minecraft.block.AbstractBlock;
@@ -11,6 +12,7 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.LinkedList;
@@ -28,7 +30,8 @@ public class VegetationBlocks {
         VEG_TYPE_HERB,
         VEG_TYPE_FLOWER,
         VEG_TYPE_GRASS,
-        VEG_TYPE_BUSH
+        VEG_TYPE_BUSH,
+        VEG_TYPE_WILD_VEG
     }
 
     public enum Default {
@@ -36,7 +39,16 @@ public class VegetationBlocks {
         SAGEBRUSH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, false, null),
         BITTERBRUSH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, true, FloweringSeasonSpringSummer()),
         MILKVETCH(VegType.VEG_TYPE_BUSH, false, Blocks.DEAD_BUSH.getBlock(), null, null, null, null, true, FloweringSeasonSummer()),
-        ADONIS(VegType.VEG_TYPE_FLOWER, false, null, null, null, null,  null, true, FloweringSeasonSpringSummer());
+        ADONIS(VegType.VEG_TYPE_FLOWER, false, null, null, null, null,  null, true, FloweringSeasonSpringSummer()),
+
+        GRASS(VegType.VEG_TYPE_GRASS, false, null, null, null, null, null, null, null),
+
+        WILD_CARROT(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null),
+        WILD_GARLIC(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null),
+        WILD_ONION(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null),
+        WILD_POTATO(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null),
+        WILD_CABBAGE(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null),
+        WILD_SPINACH(VegType.VEG_TYPE_WILD_VEG, false, null, null, null, null, null, null, null);
 
         private final VegType type;
         private final Boolean is_tall;
@@ -77,13 +89,20 @@ public class VegetationBlocks {
             switch(this.GetVegetationCategory()) {
                 case VEG_TYPE_HERB:
                 case VEG_TYPE_GRASS:
+                    return new GrowingGrassBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).strength(0.1F).randomTicks().noCollission().sound(SoundType.GRASS));
                 case VEG_TYPE_BUSH:
+                    return new HerbBushBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_GREEN).noCollission().instabreak().sound(SoundType.GRASS));
+                case VEG_TYPE_WILD_VEG:
                     return new HerbBushBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_GREEN).noCollission().instabreak().sound(SoundType.GRASS));
                 case VEG_TYPE_FLOWER:
                     return new NewFlowerBlock(Effects.REGENERATION, 7, AbstractBlock.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS));
                 default:
                     return null;
             }
+        }
+
+        public Block getBlock() {
+            return ForgeRegistries.BLOCKS.getValue(new ResourceLocation("survivalism:" + nameFor()));
         }
 
         public String nameFor() {
@@ -96,6 +115,8 @@ public class VegetationBlocks {
                     return ("veg/herb/" + this.name().toLowerCase());
                 case VEG_TYPE_BUSH:
                     return ("veg/bush/" + this.name().toLowerCase());
+                case VEG_TYPE_WILD_VEG:
+                    return ("veg/veg/" + this.name().toLowerCase());
                 default:
                     break;
             }

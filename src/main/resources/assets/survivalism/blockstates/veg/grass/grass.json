@@ -1,0 +1,243 @@
+{
+  "variants": {
+    "age=0": [
+      {
+        "model": "survivalism:block/veg/grass/grass1"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1lf"
+      }
+    ],
+   
+    "age=1": [
+      {
+        "model": "survivalism:block/veg/grass/grass1"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1lf"
+      }
+    ],
+
+    "age=2": [
+      {
+        "model": "survivalism:block/veg/grass/grass1"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1lf"
+      }
+    ],
+
+    "age=3": [
+      {
+        "model": "survivalism:block/veg/grass/grass1"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1lf"
+      }
+    ],
+
+    "age=4": [
+      {
+        "model": "survivalism:block/veg/grass/grass1"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass1lf"
+      }
+    ],
+
+    "age=5": [
+      {
+        "model": "survivalism:block/veg/grass/grass2"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2lf"
+      }
+    ],
+
+    "age=6": [
+      {
+        "model": "survivalism:block/veg/grass/grass2"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2lf"
+      }
+    ],
+
+    "age=7": [
+      {
+        "model": "survivalism:block/veg/grass/grass2"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2lf"
+      }
+    ],
+
+    "age=8": [
+      {
+        "model": "survivalism:block/veg/grass/grass2"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2lf"
+      }
+    ],
+
+    "age=9": [
+      {
+        "model": "survivalism:block/veg/grass/grass2"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass2lf"
+      }
+    ],
+
+    "age=10": [
+      {
+        "model": "survivalism:block/veg/grass/grass3"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3lf"
+      }
+    ],
+
+    "age=11": [
+      {
+        "model": "survivalism:block/veg/grass/grass3"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3lf"
+      }
+    ],
+
+    "age=12": [
+      {
+        "model": "survivalism:block/veg/grass/grass3"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3lf"
+      }
+    ],
+
+    "age=13": [
+      {
+        "model": "survivalism:block/veg/grass/grass3"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3lf"
+      }
+    ],
+
+    "age=14": [
+      {
+        "model": "survivalism:block/veg/grass/grass3"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass3lf"
+      }
+    ],
+
+    "age=15": [
+      {
+        "model": "survivalism:block/veg/grass/grass4"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass4f"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass4l"
+      },
+      {
+        "model": "survivalism:block/veg/grass/grass4lf"
+      }
+    ]
+  }
+}

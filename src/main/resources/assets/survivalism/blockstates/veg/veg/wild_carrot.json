@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/veg/veg/wild_carrot"
+      },
+      {
+        "model": "survivalism:block/veg/veg/wild_carrot_flipped"
+      }
+    ]
+  }
+}

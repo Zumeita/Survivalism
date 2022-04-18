@@ -2,6 +2,7 @@ package io.github.zumeita.survivalism.client;
 
 import io.github.zumeita.survivalism.Survivalism;
 import io.github.zumeita.survivalism.definitions.EarthBlocks;
+import io.github.zumeita.survivalism.definitions.VegetationBlocks;
 import io.github.zumeita.survivalism.registration.RegistryVegetationBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.ParticleManager;
@@ -44,6 +45,7 @@ public class ClientEventHandler {
     public static void registerColorHandlerBlocks(final ColorHandlerEvent.Block event) {
         final BlockColors registry = event.getBlockColors();
         registry.register((state, worldIn, pos, tintIndex) -> ColorHandler.getFoliageColor(pos, tintIndex), EarthBlocks.Type.HUMUS.getBlock());
+        registry.register((state, worldIn, pos, tintIndex) -> ColorHandler.getFoliageColor(pos, tintIndex), VegetationBlocks.Default.GRASS.getBlock());
     }
 
     public static void registerParticleFactoriesAndOtherStuff(ParticleFactoryRegisterEvent event)

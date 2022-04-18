@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "survivalism:block/veg/veg/wild_onion"
+  }
+}

@@ -169,6 +169,18 @@ public class HumusBlock extends Block implements IGrassOntop {
         return state;
     }
 
+    @Override
+    public boolean canSustainPlant(BlockState state, IBlockReader worldIn, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
+        BlockState plant = plantable.getPlant(worldIn, pos.relative(facing));
+        Block plantBlock = plant.getBlock();
+
+        if(plantBlock instanceof GrowingGrassBlock || plantBlock instanceof HerbBushBlock) { // All Survivalism 'Grass' is made with this block type. so this handles all!
+            return true;
+        }
+
+        return false;
+    }
+
     protected void updateSurroundingGrassConnections(IWorld world, BlockPos pos)
     {
         if (world.isAreaLoaded(pos, 2))

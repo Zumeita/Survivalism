@@ -9,6 +9,7 @@ import net.minecraft.block.BushBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -45,11 +46,12 @@ public class HerbBushBlock extends BushBlock implements IPlantable
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos){
-        BlockState groundState = worldIn.getBlockState(pos.below());
-        Block ground = groundState.getBlock();
-
-        return ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.PODZOL || ground == Blocks.COARSE_DIRT || super.canSurvive(state,  worldIn,  pos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        if (state.getBlock() == this) {
+            return worldIn.getBlockState(blockpos).canSustainPlant(worldIn, blockpos, Direction.UP, this);
+        }
+        return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
     @Override

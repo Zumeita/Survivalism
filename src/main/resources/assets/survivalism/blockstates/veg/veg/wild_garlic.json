@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/veg/veg/wild_garlic"
+      },
+      {
+        "model": "survivalism:block/veg/veg/wild_garlic_flipped"
+      }
+    ]
+  }
+}

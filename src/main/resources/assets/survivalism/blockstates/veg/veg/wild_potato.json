@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "survivalism:block/veg/veg/wild_potato"
+      },
+      {
+        "model": "survivalism:block/veg/veg/wild_potato_flipped"
+      }
+    ]
+  }
+}
